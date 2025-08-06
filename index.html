@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!-- The <!DOCTYPE html> declaration defines this document to be HTML5 -->
+
+<html lang="en">
+<!-- The <html> tag is the root element of an HTML page. 'lang' is for language. -->
+
+<head>
+    <!-- The <head> contains meta-information. It's not visible on the page itself. -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The <title> appears in the browser tab. -->
+    <title>HTML Tags Demo</title>
+
+    <!-- The <link> tag can be used to add a favicon (the icon in the browser tab) -->
+    <link rel="icon" href="https://www.google.com/s2/favicons?domain=html.com" type="image/x-icon">
+
+    <style>
+        /* This makes the jump-scrolling smooth instead of instant and prevents the sticky nav from covering section titles. */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem; 
+        }
+
+        /* Basic CSS for layout and clarity */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* The <header> and <footer> tags are styled to look distinct */
+        header {
+            background: linear-gradient(45deg, #3a6186, #89253e);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid #ffc107;
+        }
+        
+        /* Updated footer styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-links svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+            vertical-align: middle;
+        }
+
+        /* The <nav> tag for navigation links */
+        nav {
+            background-color: #34495e;
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #4e6a85;
+        }
+
+        /* The <main> content area */
+        main {
+            padding: 1rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Each <section> is a distinct part of the page */
+        section {
+            background-color: white;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* A <div> is a generic container. We use it here for a styled box. */
+        .styled-div {
+            background-color: #eaf2f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        /* An <article> is a self-contained block of content */
+        article {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+
+        /* <pre> for preformatted text, good for code or text art */
+        pre {
+            background-color: #2d2d2d;
+            color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Allows wrapping */
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #555;
+        }
+
+        /* Styling for form elements */
+        input, textarea, select, button {
+            font-family: inherit;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        /* Style radio and checkbox labels to be inline */
+        .inline-label {
+            display: inline-block;
+            width: auto;
+            margin-left: 5px;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+        }
+        
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+        }
+        legend {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 0 10px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: auto; /* Override width for buttons */
+            transition: background-color 0.3s;
+        }
+        button[type="reset"] {
+            background-color: #95a5a6;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* A <hr> is a thematic break (horizontal rule) */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 2rem 0;
+        }
+
+        /* Different HR styles */
+        hr.style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, #f0f0f0, #8c8b8b, #f0f0f0);
+        }
+        hr.style-three {
+            border-top: 3px double #8c8b8b;
+            height: 0;
+            background: none;
+        }
+        hr.style-four {
+            border-top: 1px dashed #8c8b8b;
+            height: 0;
+            background: none;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <header>
+        <h1>HTML Tag Demonstration</h1>
+        <p>An interactive guide to common HTML tags.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#text">Text</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#links-images">Links & Images</a></li>
+            <li><a href="#div-compare">Divs & Semantics</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#layout">Layout & Media</a></li>
+            <li><a href="#page-footer">Footer</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- SECTION 1: TEXT FORMATTING -->
+        <section id="text">
+            <h2>Text Formatting &amp; Semantics</h2>
+            
+            <h1>&lt;h1&gt; Heading</h1>
+            <h2>&lt;h2&gt; Heading</h2>
+            <h3>&lt;h3&gt; Heading</h3>
+            <h4>&lt;h4&gt; Heading</h4>
+            <h5>&lt;h5&gt; Heading</h5>
+            <h6>&lt;h6&gt; Heading</h6>
+            
+            <hr>
+
+            <h3>Inline Formatting Tags</h3>
+            <p>
+                This is a standard paragraph. You can use <strong>&lt;strong&gt;</strong> for important text, and <b>&lt;b&gt;</b> for visually offset text without extra importance.
+                Similarly, use <em>&lt;em&gt;</em> for emphasized text, and <i>&lt;i&gt;</i> for text in an alternate voice (like a thought or technical term).
+            </p>
+            <p>
+                This item is <del>&lt;del&gt;eted</del> or <s>&lt;s&gt;triken</s>.
+                This item has been <ins>&lt;ins&gt;erted</ins> or is <u>&lt;u&gt;nderlined</u>.
+            </p>
+            <p>
+                Chemical formula: H<sub>2</sub>O (using &lt;sub&gt;).
+                Math equation: E = mc<sup>2</sup> (using &lt;sup&gt;).
+            </p>
+            <p>This part of the text is <mark>&lt;mark&gt;ed</mark> for reference.</p>
+            
+            <h3>&lt;br&gt; (Line Break) Tag</h3>
+            <p>This text is on one line. This text is on the same line.</p>
+            <p>This text is on one line.<br>Thanks to the `br` tag, this text is on a new line.</p>
+
+            <h3>&lt;pre&gt; (Preformatted Text) Tag</h3>
+            <pre>
+The &lt;pre&gt; tag is for preformatted text.
+It preserves all spaces and line breaks exactly as they are written in the HTML.
+
+For example, this text has:
+  * Multiple    spaces between words.
+  * And specific line breaks.
+            </pre>
+
+            <h3>&lt;hr&gt; (Horizontal Rule) Tag Variations</h3>
+            <p>Default Style:</p>
+            <hr>
+            <p>Styled with CSS (gradient):</p>
+            <hr class="style-two">
+            <p>Styled with CSS (double):</p>
+            <hr class="style-three">
+            <p>Styled with CSS (dashed):</p>
+            <hr class="style-four">
+        </section>
+
+
+        <!-- SECTION 2: LISTS -->
+        <section id="lists">
+            <h2>All Types of Lists</h2>
+            <h3>&lt;ul&gt; (Unordered List)</h3>
+            <ul type="disc"><li>Default (disc)</li></ul>
+            <ul type="circle"><li>Circle</li></ul>
+            <ul type="square"><li>Square</li></ul>
+            
+            <h3>&lt;ol&gt; (Ordered List)</h3>
+            <ol type="1"><li>Default (numbers)</li></ol>
+            <ol type="A"><li>Uppercase Letters</li></ol>
+            <ol type="a"><li>Lowercase Letters</li></ol>
+            <ol type="I"><li>Uppercase Roman</li></ol>
+            <ol type="i" start="3" reversed>
+                <li>Lowercase Roman</li>
+                <li>Starts at 3 and is reversed</li>
+            </ol>
+
+            <h3>&lt;dl&gt; (Description List)</h3>
+            <dl>
+                <dt>&lt;dt&gt; (Term)</dt>
+                <dd>&lt;dd&gt; (Description)</dd>
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets</dd>
+            </dl>
+        </section>
+
+
+        <!-- SECTION 3: LINKS & IMAGES -->
+        <section id="links-images">
+            <h2>&lt;a&gt; (Anchor) &amp; &lt;img&gt; (Image) Tags</h2>
+            <p>The <strong>anchor tag</strong> `&lt;a&gt;` creates a hyperlink.</p>
+            <p><a href="https://www.google.com" target="_blank" title="Go to Google">This is an external link.</a></p>
+            <p><a href="#top">This is an internal link to the top of the page.</a></p>
+            
+            <p>The <strong>image tag</strong> `&lt;img&gt;` embeds an image. An image can also be a link.</p>
+            <figure style="margin-top: 1rem;">
+                <a href="https://www.pexels.com/search/sports%20car/" target="_blank">
+                    <img 
+                        src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                        alt="A close-up of the front of a red Mercedes sports car" 
+                        title="This text appears on hover!" 
+                        style="max-width:100%; height:auto; border-radius: 8px;">
+                </a>
+                <figcaption>Click on the image to get those cars' website.</figcaption>
+            </figure>
+            
+            <figure style="margin-top: 1rem;">
+                <img 
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh33T71Q0QKH1E1NyEEhGqNqqqBRV7pKpBKpWr-gq3WSJFJbAySURNI6uZF8Ir8BB7fFdYBLBX2kOJ4g9oSklmNfW9t0Uwu9Tcd818vKFnT8MSyU49luXDOyTp7v_wkE754NZYwVRCbqUtXuMJtGoeQ9nx6rwn8f9yeRPmGezCBgWus0nYLeEkW1zsp/w642-h361/Untitled%20design.jpg" 
+                    alt="Animes" 
+                    title="Animes!"
+                    width="900"
+                    height="506"
+                    style="max-width:100%; height:auto; border-radius: 8px;">
+                <figcaption>My fav Animes.</figcaption>
+            </figure>
+
+            <h3>Broken Image Example</h3>
+            <p>If an image `src` is invalid, the `alt` text is displayed. The `width` and `height` attributes still reserve the space.</p>
+            <img src="path/to/nonexistent/image.jpg" alt="This is the alternate text for a broken image." width="300" height="100" style="border: 2px dashed #ccc; padding: 10px;">
+        </section>
+
+        <!-- SECTION 4: DIVS & SEMANTICS -->
+        <section id="div-compare">
+            <h2>Divs vs. Semantic Tags</h2>
+            <p>It's important to understand when to use a generic `&lt;div&gt;` and when to use a semantic tag like `&lt;section&gt;` or `&lt;article&gt;`.</p>
+            <div class="styled-div">
+                This is a <strong>&lt;div&gt;</strong>. It has no semantic meaning. It's just a "division" or a box. You use it for styling purposes, like creating a container for a group of elements that don't logically form a distinct section of the document.
+            </div>
+            <article>
+                <h3>This is an &lt;article&gt;</h3>
+                <p>An `&lt;article&gt;` is for self-contained content that could be distributed on its own, like a blog post, a news story, or a forum comment. It makes sense by itself.</p>
+            </article>
+            <p>This whole area with the white background is a `&lt;section&gt;` tag. It groups related content together. Unlike an article, a section might not make sense if you took it out of the context of the page.</p>
+        </section>
+
+        <!-- SECTION 5: TABLES -->
+        <section id="tables">
+            <h2>&lt;table&gt; Variations</h2>
+            <h3>Table with CSS Styling (Recommended)</h3>
+            <table id="data-table">
+                <caption>&lt;caption&gt; Monthly Report</caption>
+                <thead><tr><th>&lt;th&gt; Name</th><th>&lt;th&gt; Department</th><th>&lt;th&gt; Sales</th></tr></thead>
+                <tbody>
+                    <tr><td>&lt;td&gt; John Doe</td><td>&lt;td&gt; Marketing</td><td>&lt;td&gt; $12,000</td></tr>
+                    <tr><td>&lt;td&gt; Jane Smith</td><td rowspan="2">&lt;td&gt; Operations</td><td>&lt;td&gt; $8,500</td></tr>
+                    <tr><td>&lt;td&gt; Peter Jones</td><td>&lt;td&gt; $9,200</td></tr>
+                    <tr><td colspan="2">&lt;td&gt; Total</td><td>&lt;td&gt; $29,700</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 2rem;">Table with HTML `border` attribute</h3>
+            <table border="1">
+                <caption>Employee Info</caption>
+                <tr><th>ID</th><th>Name</th></tr>
+                <tr><td>1</td><td>Alice</td></tr>
+                <tr><td>2</td><td>Bob</td></tr>
+            </table>
+
+            <h3 style="margin-top: 2rem;">Table with No Lines (No Styling)</h3>
+            <table>
+                <tr><td>Item A</td><td>$10</td></tr>
+                <tr><td>Item B</td><td>$20</td></tr>
+            </table>
+
+            <h3 style="margin-top: 2rem;">Table Demonstrating Tag Names</h3>
+            <table border="1">
+                <caption>Tag Structure</caption>
+                <tr><th>&lt;table&gt;</th><th>&lt;tr&gt;</th><th>&lt;th&gt; or &lt;td&gt;</th></tr>
+                <tr><td>Table Container</td><td>Table Row</td><td>Table Header/Data Cell</td></tr>
+            </table>
+        </section>
+
+
+        <!-- SECTION 6: FORMS -->
+        <section id="forms">
+            <h2>Forms &amp; User Input</h2>
+            <p>The <strong>&lt;fieldset&gt;</strong> tag is used to group related elements in a form, and the <strong>&lt;legend&gt;</strong> tag provides a caption for the group.</p>
+            <form id="demo-form">
+                <fieldset>
+                    <legend>Personal Info</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g., Jane Doe">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>All Input Types</legend>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                    
+                    <label for="tel">Telephone:</label>
+                    <input type="tel" id="tel" name="tel" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    
+                    <label for="url">Website:</label>
+                    <input type="url" id="url" name="url" placeholder="https://example.com">
+
+                    <label for="search">Search:</label>
+                    <input type="search" id="search" name="search">
+
+                    <label for="number">Quantity (1-10):</label>
+                    <input type="number" id="number" name="number" min="1" max="10">
+
+                    <label for="date">Appointment Date:</label>
+                    <input type="date" id="date" name="date">
+                    
+                    <label for="time">Select a time:</label>
+                    <input type="time" id="time" name="time">
+
+                    <label for="datetime-local">Appointment (Date and Time):</label>
+                    <input type="datetime-local" id="datetime-local" name="datetime-local">
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="flex-grow: 1;">
+                            <label for="color">Favorite Color:</label>
+                            <input type="color" id="color" name="color" value="#3498db" oninput="document.getElementById('color-box').style.backgroundColor = this.value">
+                        </div>
+                        <div id="color-box" style="width: 50px; height: 50px; border: 1px solid #ccc; background-color: #3498db; border-radius: 4px; margin-top: 25px;"></div>
+                    </div>
+
+                    <p>Options:</p>
+                    <input type="radio" id="option1" name="options" value="1"><label for="option1" class="inline-label">Option 1</label>
+                    <input type="radio" id="option2" name="options" value="2"><label for="option2" class="inline-label">Option 2</label>
+                    
+                    <p>Extras:</p>
+                    <input type="checkbox" id="extra1" name="extras" value="A"><label for="extra1" class="inline-label">Extra A</label>
+                    <input type="checkbox" id="extra2" name="extras" value="B"><label for="extra2" class="inline-label">Extra B</label>
+                    
+                    <label for="file">Upload a file:</label>
+                    <input type="file" id="file" name="file">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Choice</legend>
+                    <label for="item-select">Choose an item:</label>
+                    <select name="item" id="item-select"><option value="">--Please choose an option--</option><option value="Product A">Product A</option><option value="Service B">Service B</option></select>
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                    <label for="satisfaction">Satisfaction: <output name="level" for="satisfaction">50</output></label>
+                    <input type="range" id="satisfaction" name="satisfaction" min="0" max="100" value="50" oninput="this.form.level.value = this.value">
+                </fieldset>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+
+
+        <!-- SECTION 7: LAYOUT & MEDIA -->
+        <section id="layout">
+            <h2>Layout &amp; Media</h2>
+            <details><summary>Click for More Details</summary><p>This content was hidden.</p></details>
+            <hr>
+            <h3>Media Elements</h3>
+            
+            <p>The <strong>&lt;video&gt;</strong> tag embeds a video. `controls` adds player UI.</p>
+            <video controls style="width:100%; max-width:600px; border-radius: 8px;">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+
+            <p style="margin-top: 1rem;">The <strong>&lt;audio&gt;</strong> tag embeds sound.</p>
+            <audio controls style="width: 100%;"><source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg"><source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+            
+            <p style="margin-top: 1rem;">The <strong>&lt;iframe&gt;</strong> tag embeds another HTML page. Here is a map of Kakinada, Andhra Pradesh.</p>
+            <iframe id="dynamic-iframe" src="https://www.openstreetmap.org/export/embed.html?bbox=82.230,16.940,82.246,16.950&layer=mapnik" style="border:0; width: 100%; height: 350px; border-radius: 8px;" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer id="page-footer">
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/ram-teja-surampudi-811b48252/" target="_blank" title="LinkedIn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://github.com/Ramteja-16" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:ramteja1610@gmail.com" title="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2025 Ram Teja Surampudi. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
